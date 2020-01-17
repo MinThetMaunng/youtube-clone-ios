@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -17,11 +18,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         let layout = UICollectionViewFlowLayout()
+        let statusBarHeight = UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 20
         
-        UINavigationBar.appearance().barTintColor = UIColor(red: 230/255, green: 32/255, blue: 31/255, alpha: 1)
+        UINavigationBar.appearance().barTintColor = UIColor.rgb(red: 230, green: 32, blue: 31)
         window?.rootViewController = UINavigationController(rootViewController: HomeController(collectionViewLayout: layout))
-         guard let windowScene = (scene as? UIWindowScene) else { return }
-         window?.windowScene = windowScene
+        
+        let statusBarView = UIView()
+        statusBarView.backgroundColor = UIColor.rgb(red: 194, green: 31, blue: 31)
+        
+        window?.addSubview(statusBarView)
+        window?.addConstraintWithFormat(format: "H:|[v0]|", views: statusBarView)
+        
+        window?.addConstraintWithFormat(format: "V:|[v0(\(statusBarHeight))]", views: statusBarView)
+        
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        window?.windowScene = windowScene
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
