@@ -13,11 +13,17 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     let cellId = "cellId"
     
     var videos: [Video] = {
+        var kanyeChannel = Channel()
+        kanyeChannel.name = "KanyeIsTheBestChannel"
+        kanyeChannel.profileImageName = "kanye_profile"
+        
         var blackSpaceVideo = Video()
+        blackSpaceVideo.channel = kanyeChannel
         blackSpaceVideo.title = "Taylor Swift - Blank Space"
         blackSpaceVideo.thumbnailImageName = "taylor_swift_blank_space"
         
         var badBloodVideo = Video()
+        badBloodVideo.channel = kanyeChannel
         badBloodVideo.title = "Taylor Swift - Bad Blood featuring Kendrick Lamar"
         badBloodVideo.thumbnailImageName = "taylor_swift_bad_blood"
         
