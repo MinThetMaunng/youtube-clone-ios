@@ -30,7 +30,21 @@ class VideoCell: BaseCell {
         didSet {
             titleLabel.text = video?.title
             thumbnailImageView.image = UIImage(named: (video?.thumbnailImageName)!)
-            userProfileImageView.image = UIImage(named: (video?.channel?.profileImageName)!)
+            
+            if let profileImageName = video?.channel?.profileImageName {
+                userProfileImageView.image = UIImage(named: profileImageName)
+                
+            }
+            
+            if let channelName = video?.channel?.name, let numberOfViews = video?.numberOfViews {
+                
+                let numberFormatter = NumberFormatter()
+                numberFormatter.numberStyle = .decimal
+                
+                let subtitleText = "\(channelName) • \(numberFormatter.string(from: numberOfViews)!) • 2 years ago"
+                subTitleLabel.text = subtitleText
+            }
+
         }
     }
     
@@ -59,7 +73,7 @@ class VideoCell: BaseCell {
     
     let subTitleLabel: UITextView = {
         let tv = UITextView()
-        tv.text = "TaylorSwiftVEVO • 1,604,684,607 views • 2 years ago"
+        tv.text = "TaylorSwiftVEVO • 1,604,684,607 views   2 years ago"
         tv.translatesAutoresizingMaskIntoConstraints = false
         tv.textContainerInset = UIEdgeInsets(top: 0, left: -4, bottom: 0, right: 0)
         tv.textColor = .lightGray
