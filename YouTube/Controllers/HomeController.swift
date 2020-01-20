@@ -12,6 +12,21 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
     let cellId = "cellId"
     
+    var videos: [Video] = {
+        var blackSpaceVideo = Video()
+        blackSpaceVideo.title = "Taylor Swift - Blank Space"
+        blackSpaceVideo.thumbnailImageName = "taylor_swift_blank_space"
+        
+        var badBloodVideo = Video()
+        badBloodVideo.title = "Taylor Swift - Bad Blood featuring Kendrick Lamar"
+        badBloodVideo.thumbnailImageName = "taylor_swift_bad_blood"
+        
+//        var blackSpaceVideo = Video()
+//        blackSpaceVideo.title = "Taylor Swift - Blank Space"
+//        blackSpaceVideo.thumbnailImageName = "taylor_swift_blank_space"
+        return [blackSpaceVideo, badBloodVideo]
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.backgroundColor = .white
@@ -59,11 +74,12 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return videos.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! VideoCell
+        cell.video = videos[indexPath.item]
         return cell
     }
     
