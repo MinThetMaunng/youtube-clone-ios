@@ -11,29 +11,41 @@ import UIKit
 class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     let cellId = "cellId"
+
+    var videos = [Video]()
     
-    var videos: [Video] = {
-        var kanyeChannel = Channel()
-        kanyeChannel.name = "KanyeIsTheBestChannel"
-        kanyeChannel.profileImageName = "kanye_profile"
-        
-        var blackSpaceVideo = Video()
-        blackSpaceVideo.channel = kanyeChannel
-        blackSpaceVideo.numberOfViews = 24184312133
-        blackSpaceVideo.title = "Taylor Swift - Blank Space"
-        blackSpaceVideo.thumbnailImageName = "taylor_swift_blank_space"
-        
-        var badBloodVideo = Video()
-        badBloodVideo.channel = kanyeChannel
-        badBloodVideo.numberOfViews = 523850312342
-        badBloodVideo.title = "Taylor Swift - Bad Blood featuring Kendrick Lamar"
-        badBloodVideo.thumbnailImageName = "taylor_swift_bad_blood"
-        
-//        var blackSpaceVideo = Video()
-//        blackSpaceVideo.title = "Taylor Swift - Blank Space"
-//        blackSpaceVideo.thumbnailImageName = "taylor_swift_blank_space"
-        return [blackSpaceVideo, badBloodVideo]
-    }()
+    func fetchVideos() {
+        guard let url = URL(string: "https://s3-us-west-2.amazonaws.com/youtubeassets/home.json") else { return }
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if error != nil {
+                print("Error : \(error)")
+                return
+            }
+            do {
+                let json = try  JSONSerialization.jsonObject(with: data!, options: .mutableContainers )
+                for dictionary in json as! [[String: AnyObject]] {
+                    let channelDict = dictionary["channel"] as! [String: AnyObject]
+                    let channel = Channel()
+                    channel.name = channelDict["name"] as? String
+                    channel.profileImageName = channelDict["profile_image_name"] as? String
+                    let video = Video()
+                    video.title = dictionary["title"] as? String
+                    video.thumbnailImageName = dictionary["thumbnail_image_name"] as? String
+                    video.numberOfViews = dictionary["number_of_views"] as? NSNumber
+                    video.title = dictionary["title"] as? String
+                    video.channel = channel
+                    self.videos.append(video )
+                }
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            } catch let jsonError {
+                print(jsonError)
+            }
+        }.resume()
+   
+      
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +63,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         collectionView.scrollIndicatorInsets = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
         setupMenuBar()
         setupNavBarButtons()
+        fetchVideos()
     }
     
     func setupNavBarButtons() {
@@ -93,7 +106,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let height = (view.frame.width - 16 - 16) * 9 / 16
-        return CGSize(width: view.frame.width, height: height + 16 + 68)
+        return CGSize(width: view.frame.width, height: height + 16 + 88)
     }
  
 }

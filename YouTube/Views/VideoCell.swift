@@ -29,7 +29,9 @@ class VideoCell: BaseCell {
     var video: Video? {
         didSet {
             titleLabel.text = video?.title
-            thumbnailImageView.image = UIImage(named: (video?.thumbnailImageName)!)
+            
+            setupThumbnailImage()
+            setupProfileImage()
             
             if let profileImageName = video?.channel?.profileImageName {
                 userProfileImageView.image = UIImage(named: profileImageName)
@@ -60,16 +62,29 @@ class VideoCell: BaseCell {
         }
     }
     
+    func setupProfileImage() {
+        if let profileImageUrl = video?.channel?.profileImageName {
+            userProfileImageView.loadImageUsingUrlString(urlString: profileImageUrl)
+        }
+    }
+    
+    func setupThumbnailImage() {
+        if let thumbnailImageUrl = video?.thumbnailImageName {
+            thumbnailImageView.loadImageUsingUrlString(urlString: thumbnailImageUrl)
+        }
+    }
+    
     let thumbnailImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
-        iv.image = UIImage(named: "taylor_swift_blank_space")
+        iv.image = UIImage(named: "loading")
         return iv
     }()
     
     let userProfileImageView: UIImageView = {
         let iv = UIImageView()
+        iv.contentMode = .scaleAspectFill
         iv.image = UIImage(named: "taylor_swift_profile")
         iv.layer.cornerRadius = 22
         iv.layer.masksToBounds = true
@@ -114,7 +129,7 @@ class VideoCell: BaseCell {
         addConstraintWithFormat(format: "H:|-16-[v0]-16-|", views: thumbnailImageView)
         addConstraintWithFormat(format: "H:|-16-[v0(44)]", views: userProfileImageView)
         
-        addConstraintWithFormat(format: "V:|-16-[v0]-8-[v1(44)]-16-[v2(1)]|", views: thumbnailImageView, userProfileImageView, separatorView)
+        addConstraintWithFormat(format: "V:|-16-[v0]-8-[v1(44)]-36-[v2(1)]|", views: thumbnailImageView, userProfileImageView, separatorView)
         
         addConstraintWithFormat(format: "H:|[v0]|", views: separatorView)
         
