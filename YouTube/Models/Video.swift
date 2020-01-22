@@ -9,7 +9,6 @@
 import UIKit
 
 class Video: NSObject {
-    
     var title: String?
     var channel: Channel?
     var uploadDate: NSDate?

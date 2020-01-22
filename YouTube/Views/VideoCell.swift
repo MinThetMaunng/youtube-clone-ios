@@ -18,9 +18,7 @@ class BaseCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupViews() {
-        
-    }
+    func setupViews() {}
     
 }
 
@@ -74,16 +72,16 @@ class VideoCell: BaseCell {
         }
     }
     
-    let thumbnailImageView: UIImageView = {
-        let iv = UIImageView()
+    let thumbnailImageView: CustomImageView = {
+        let iv = CustomImageView()
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
         iv.image = UIImage(named: "loading")
         return iv
     }()
     
-    let userProfileImageView: UIImageView = {
-        let iv = UIImageView()
+    let userProfileImageView: CustomImageView = {
+        let iv = CustomImageView()
         iv.contentMode = .scaleAspectFill
         iv.image = UIImage(named: "taylor_swift_profile")
         iv.layer.cornerRadius = 22
