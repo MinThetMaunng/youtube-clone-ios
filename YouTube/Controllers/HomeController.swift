@@ -49,11 +49,14 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        fetchVideos()
+        
         collectionView.backgroundColor = .white
         navigationItem.title = "Home"
         navigationController?.navigationBar.isTranslucent = false
         let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width - 31, height: view.frame.height))
-        titleLabel.text = "Home"
+        titleLabel.text = "  Home"
         titleLabel.textColor = .white
         titleLabel.font = UIFont.systemFont(ofSize: 20)
         navigationItem.titleView = titleLabel
@@ -63,7 +66,6 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         collectionView.scrollIndicatorInsets = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
         setupMenuBar()
         setupNavBarButtons()
-        fetchVideos()
     }
     
     func setupNavBarButtons() {
@@ -103,10 +105,20 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }()
     
     private func setupMenuBar() {
-        view.addSubview(menuBar)
+        navigationController?.hidesBarsOnSwipe = true
         
+        let redView = UIView()
+        redView.backgroundColor = UIColor.rgb(red: 230, green: 32, blue: 31)
+        
+        view.addSubview(redView)
+        view.addConstraintWithFormat(format: "H:|[v0]|", views: redView)
+        view.addConstraintWithFormat(format: "V:[v0(50)]", views: redView)
+        
+        view.addSubview(menuBar)
         view.addConstraintWithFormat(format: "H:|[v0]|", views: menuBar)
-        view.addConstraintWithFormat(format: "V:|[v0(50)]", views: menuBar)
+        view.addConstraintWithFormat(format: "V:[v0(50)]", views: menuBar)
+        
+        menuBar.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor).isActive = true
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
