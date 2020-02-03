@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D94597C623D2CAC500D8E727 /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94597C523D2CAC500D8E727 /* MenuBar.swift */; };
+		D967CB0E23E851180018C509 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D967CB0D23E851180018C509 /* FeedCell.swift */; };
 		D977876623E320AF005E520A /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D977876523E320AF005E520A /* ApiService.swift */; };
 		D9859F9823D9B1230035D739 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9859F9723D9B1230035D739 /* SettingCell.swift */; };
 		D99398CE23D1BBEC0097E5CA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99398CD23D1BBEC0097E5CA /* Extensions.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		D94597C523D2CAC500D8E727 /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
+		D967CB0D23E851180018C509 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		D977876523E320AF005E520A /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		D9859F9723D9B1230035D739 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		D99398CD23D1BBEC0097E5CA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				D99398D023D1BC7A0097E5CA /* VideoCell.swift */,
 				D94597C523D2CAC500D8E727 /* MenuBar.swift */,
 				D9859F9723D9B1230035D739 /* SettingCell.swift */,
+				D967CB0D23E851180018C509 /* FeedCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				D9E8958E23D0B2790078117A /* HomeController.swift in Sources */,
 				D94597C623D2CAC500D8E727 /* MenuBar.swift in Sources */,
 				D9E8958A23D0B2790078117A /* AppDelegate.swift in Sources */,
+				D967CB0E23E851180018C509 /* FeedCell.swift in Sources */,
 				D9CD2B2623D897C000702D3A /* SettingsLauncher.swift in Sources */,
 				D9E8958C23D0B2790078117A /* SceneDelegate.swift in Sources */,
 				D977876623E320AF005E520A /* ApiService.swift in Sources */,

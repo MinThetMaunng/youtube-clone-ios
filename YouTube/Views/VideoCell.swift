@@ -115,7 +115,7 @@ class VideoCell: BaseCell {
     override func setupViews() {
         
         super.setupViews()
-        
+        backgroundColor = .white
         addSubview(thumbnailImageView)
         addSubview(userProfileImageView)
         addSubview(titleLabel)
