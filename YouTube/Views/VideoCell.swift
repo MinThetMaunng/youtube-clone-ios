@@ -88,6 +88,8 @@ class VideoCell: BaseCell {
         let lbl = UILabel()
         lbl.text = "Taylor Swift - Blank Space"
         lbl.numberOfLines = 2
+        lbl.textColor = .black
+        lbl.backgroundColor = .white
         lbl.font = UIFont.systemFont(ofSize: 16)
         lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
@@ -95,6 +97,7 @@ class VideoCell: BaseCell {
     
     let subTitleLabel: UITextView = {
         let tv = UITextView()
+        tv.backgroundColor = .white
         tv.text = "TaylorSwiftVEVO • 1,604,684,607 views   2 years ago"
         tv.translatesAutoresizingMaskIntoConstraints = false
         tv.textContainerInset = UIEdgeInsets(top: 0, left: -4, bottom: 0, right: 0)

@@ -38,6 +38,7 @@ class SettingCell: BaseCell {
     let nameLabel: UILabel = {
         let lbl = UILabel()
         lbl.text = "Setting"
+        lbl.textColor = .black
         lbl.font = UIFont.systemFont(ofSize: 13)
         return lbl
     }()
