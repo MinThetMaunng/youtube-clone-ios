@@ -35,7 +35,7 @@ class FeedCell: BaseCell, UICollectionViewDelegate, UICollectionViewDataSource, 
         super.setupViews()
         
         fetchVideos()
-        backgroundColor = .brown
+        backgroundColor = .white
         
         addSubview(collectionView)
         
