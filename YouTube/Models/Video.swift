@@ -8,15 +8,19 @@
 
 import UIKit
 
-class Video: NSObject {
+struct Video: Codable {
     var title: String?
     var channel: Channel?
-    var uploadDate: NSDate?
-    var numberOfViews: NSNumber?
-    var thumbnailImageName: String?
+//    var uploadDate: NSDate?
+    var uploadDate: Date?
+//    var duration: NSNumber?
+    var duration: Int?
+    var number_of_views: Int?
+//    var number_of_views: NSNumber?
+    var thumbnail_image_name: String?
 }
 
-class Channel: NSObject {
+struct Channel: Codable {
     var name: String?
-    var profileImageName: String?
+    var profile_image_name: String?
 }
