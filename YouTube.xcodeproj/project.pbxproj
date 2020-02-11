@@ -13,6 +13,7 @@
 		D97525B123E9A315009B1444 /* TrendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97525B023E9A315009B1444 /* TrendingCell.swift */; };
 		D977876623E320AF005E520A /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D977876523E320AF005E520A /* ApiService.swift */; };
 		D9859F9823D9B1230035D739 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9859F9723D9B1230035D739 /* SettingCell.swift */; };
+		D991B59023F304AF001A2840 /* VideoLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D991B58F23F304AF001A2840 /* VideoLauncher.swift */; };
 		D99398CE23D1BBEC0097E5CA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99398CD23D1BBEC0097E5CA /* Extensions.swift */; };
 		D99398D123D1BC7A0097E5CA /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99398D023D1BC7A0097E5CA /* VideoCell.swift */; };
 		D9CD2B2623D897C000702D3A /* SettingsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CD2B2523D897C000702D3A /* SettingsLauncher.swift */; };
@@ -32,6 +33,7 @@
 		D97525B023E9A315009B1444 /* TrendingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCell.swift; sourceTree = "<group>"; };
 		D977876523E320AF005E520A /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		D9859F9723D9B1230035D739 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
+		D991B58F23F304AF001A2840 /* VideoLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoLauncher.swift; sourceTree = "<group>"; };
 		D99398CD23D1BBEC0097E5CA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D99398D023D1BC7A0097E5CA /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		D9CD2B2523D897C000702D3A /* SettingsLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLauncher.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				D99398CD23D1BBEC0097E5CA /* Extensions.swift */,
+				D991B58F23F304AF001A2840 /* VideoLauncher.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				D99398D123D1BC7A0097E5CA /* VideoCell.swift in Sources */,
 				D9E8958E23D0B2790078117A /* HomeController.swift in Sources */,
 				D94597C623D2CAC500D8E727 /* MenuBar.swift in Sources */,
+				D991B59023F304AF001A2840 /* VideoLauncher.swift in Sources */,
 				D9E8958A23D0B2790078117A /* AppDelegate.swift in Sources */,
 				D967CB0E23E851180018C509 /* FeedCell.swift in Sources */,
 				D9CD2B2623D897C000702D3A /* SettingsLauncher.swift in Sources */,

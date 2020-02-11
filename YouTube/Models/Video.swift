@@ -10,13 +10,10 @@ import UIKit
 
 struct Video: Codable {
     var title: String?
-    var channel: Channel?
-//    var uploadDate: NSDate?
-    var uploadDate: Date?
-//    var duration: NSNumber?
     var duration: Int?
+    var channel: Channel?
+    var uploadDate: Date?
     var number_of_views: Int?
-//    var number_of_views: NSNumber?
     var thumbnail_image_name: String?
 }
 
