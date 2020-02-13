@@ -97,6 +97,7 @@ class VideoCell: BaseCell {
     
     let subTitleLabel: UITextView = {
         let tv = UITextView()
+        tv.isEditable = false
         tv.backgroundColor = .white
         tv.text = "TaylorSwiftVEVO • 1,604,684,607 views   2 years ago"
         tv.translatesAutoresizingMaskIntoConstraints = false

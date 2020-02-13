@@ -93,7 +93,8 @@ class VideoPlayerView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        setupPlayerView ()
+        setupPlayerView()
+        setupGradientLayer()
         
         controlsContainerView.frame = frame
         addSubview(controlsContainerView)
@@ -157,6 +158,14 @@ class VideoPlayerView: UIView {
                 videoLengthLabel.text = "\(minutesText):\(secondsText)"
             }
         }
+    }
+    
+    private func setupGradientLayer() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = bounds
+        gradientLayer.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
+        gradientLayer.locations = [0.7, 1.2]
+        controlsContainerView.layer.addSublayer(gradientLayer)
     }
     
     required init?(coder: NSCoder) {
